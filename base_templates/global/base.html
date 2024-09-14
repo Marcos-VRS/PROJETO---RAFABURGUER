@@ -1,20 +1,346 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=“stylesheet” href="{% static 'global/css/style.css' %}">
-    <title>Site RAFABURGUER</title>
+    <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;400italic;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Adiciona rolagem suave para o HTML */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <title>RAFA BURG'S</title>
 </head>
-<h1>dfasdfasdf
 
-</h1>
+<body class="main-bg">
 
-<body>
+    <aside class="menu blackbar-bg">
+        <div class="main-content menu-content">
+            <h1><a href="#section1"><img src="{% static 'global/img/logo300.png' %}" alt="Logo" class="img-logo"></a>
+            </h1>
+            <nav class="menu-nav">
+                <ul>
+                    <li><a href="#section2">CACHORRO QUENTE</a></li>
+                    <li><a href="#section3">SANDUICHES</a></li>
+                    <li><a href="#section4">DA CASA</a></li>
+                    <li><a href="#section5">PETISCOS</a></li>
+                    <li><a href="#section6">PASTEIS</a></li>
+                    <li><a href="#section7">AÇAI</a></li>
+                    <li><a href="#section8">BEBIDAS</a></li>
+                    <li><a href="#section9">CONTATO</a></li>
+                    <li><a href="#"><img src="{% static 'global/img/carrinho.png' %}" alt="Logo" class="img-logo"></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
 
+    <section id="section1" class="main-bg section"></section>
+
+    <!--SECTION 2-->
+    <section id="section2" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">CACHORRO QUENTE</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado.</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado.</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 3-->
+    <section id="section3" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">SANDUICHES</H1>
+
+            <div class="linha-produtos">
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">MISTO</h2>
+                    <p>Queijo e Presunto.</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-SALADA</h2>
+                    <p>Quejo, Presunto, Alface.</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-BURG </h2>
+                    <p>Hamburguer, Quejo, Presunto, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 6,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">BAURU</h2>
+                    <p>Hamburguer, Ovo, Queijo, Presunto, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 7,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-FRANGO SIMPLES.</h2>
+                    <p>Hamburguer, Frango, Alface e Tomate</p>
+                    <h3 class="preço-produto">R$ 8,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-SENNA</h2>
+                    <p>Hamburguer, Queijo, Presunto, Frango, Requeijão, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 9,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-FRANGO</h2>
+                    <p>Quejo, Frango, Calabresa, Bacon, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 10,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-CALABRESA</h2>
+                    <p>Hamburguer, Queijo, Calabresa, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 10,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-BACON</h2>
+                    <p>Hamburguer, Ovo, Queijo, Presunto, Bacon, Alface e Tomate</p>
+                    <h3 class="preço-produto">R$ 11,00</h3>
+                </div>
+
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">X-TUDO</h2>
+                    <p>Hamburguer, Queijo, Presunto, Salsicha, Ovo, Bacon, Frango, Requeijão, Alface e Tomate.</p>
+                    <h3 class="preço-produto">R$ 12,00</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 4-->
+    <section id="section4" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">DA CASA</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 5-->
+    <section id="section5" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">PETISCOS</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 6-->
+    <section id="section6" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">PASTEIS</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 7-->
+    <section id="section7" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">AÇAI</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 8-->
+    <section id="section8" class="main-bg section">
+        <div class="image-text-container ">
+            <H1 class="titulo-produto">BEBIDAS</H1>
+            <div class="linha-produtos">
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO QUENTE</h2>
+                    <p>Salsicha, Carne, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+                <div class="image-text-item faded-thin-black-bg">
+                    <img src="{% static 'global/img/logo300.png' %}" alt="Descrição da Imagem 1">
+                    <h2 class="titulo-produto">CACHORRO CHICKEN </h2>
+                    <p>Catupiry, Frango, Vinagrete, Batata Palha e Queijo Ralado</p>
+                    <h3 class="preço-produto">R$ 5,00</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION 9-->
+    <section id="section9" class="main-bg section9">
+        <div class="contact-header">
+            <h2 id="titulo-section7">Entre em Contato Conosco</h2>
+        </div>
+        <div class="contact-content">
+            <div class="contact-column contact-info">
+                <h3>Informações de Contato</h3>
+                <p>Endereço: Av. Ayrton Senna, 3782-3866 - Capim Macio, Natal - RN, 59088-300</p>
+                <p>Telefone: (84) 99219-7676</p>
+                <!-- Adicione o formulário aqui -->
+                <div class="contact-form">
+                    <h3>Formulário de Contato</h3>
+                    <form action="/enviar-formulario" method="post">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" rows="2" required></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-column">
+                <!-- Mapa do Google Maps -->
+                <h3>Localização</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24191.4187880704!2d-35.203223699999996!3d-5.8716941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b2ff5d55fc2dcb%3A0xe4a8c0916b4a01c1!2sRAFA%20BURG'S!5e0!3m2!1spt-BR!2sbr!4v1694830631984!5m2!1spt-BR!2sbr"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <p> </p>
+                <h3>Horário de Funcionamento</h3>
+                <p>TODOS OS DIAS : 19:00 - 02:00</p>
+                <p>ENTREGA : 19:00 - 02:00</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/558492197676" class="whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,  // Permite loop infinito
+            autoplay: {
+                delay: 4500,  // Tempo entre slides (em ms)
+                disableOnInteraction: false,  // Continua após interação do usuário
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'slide',  // Transição de slide suave
+            speed: 1000,  // Velocidade da transição (em ms)
+            slidesPerView: 1,  // Número de slides visíveis
+            spaceBetween: 30,  // Espaçamento entre slides
+            grabCursor: true,  // Cursor de "mão" para indicar que é arrastável
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.image-item');
+            const textElement = document.getElementById('section2-text');
+            const titleElement = document.getElementById('section2-title');
+
+            // Define o título inicial e o texto
+            textElement.textContent = "Explore as performances vibrantes de nossos alunos. Em cada apresentação, eles mostram seu talento e dedicação, oferecendo um espetáculo musical que emociona e inspira. Nossos eventos são uma oportunidade para vivenciar a paixão e o crescimento dos futuros músicos. Cada apresentação é cuidadosamente preparada para proporcionar uma experiência memorável para o público, destacando a evolução e o compromisso dos nossos alunos com a arte musical. Junte-se a nós para celebrar e apoiar os artistas em formação e testemunhar o impacto da música em suas vidas.";
+            titleElement.textContent = "SHOW DOS ALUNOS";
+
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    const newText = image.getAttribute('data-text');
+                    const newTitle = image.getAttribute('data-title');
+                    textElement.textContent = newText;
+                    titleElement.textContent = newTitle;
+
+                    // Rola suavemente para o texto correspondente
+                    document.querySelector('.section-part').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
