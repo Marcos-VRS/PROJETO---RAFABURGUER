@@ -96,6 +96,20 @@ a {
     transition: transform 0.3s ease-in-out;
 }
 
+.cart-img {
+    max-width: 10rem;
+    max-height: 6rem;
+    margin-right: 4rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.cart-img:hover {
+    transform: scale(1.3)
+}
+
 .img-logo:hover {
     transform: scale(1.3);
 }
@@ -133,8 +147,13 @@ a {
 
 .section {
     display: flex;
-    min-height: 100vh;
+    padding-top: 30px;
+    min-height: 120vh;
     position: relative;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+
     top: 0;
     left: 0;
     flex-wrap: wrap;
@@ -267,14 +286,8 @@ a {
     transform: scale(1.12);
 }
 
-.h2-section2 {
-    text-align: left;
-    margin-bottom: 1rem;
-    /* Adiciona uma margem de 1rem abaixo do título */
-}
 
-/* Estiliza a seção de contato */
-/* Estiliza a seção de contato */
+
 #section9 {
     display: grid;
     grid-template-rows: 4rem 1fr;
@@ -401,59 +414,7 @@ a {
 
 
 
-@media screen and (max-width: 1020px) {
-    #section2 {
-        height: auto;
-        min-height: auto;
-    }
 
-    /* CLASSES GERAIS*/
-    .image-grid {
-        grid-template-columns: 1fr;
-        /* Garante uma coluna para dispositivos móveis */
-        height: auto !important;
-        /* Garante que a altura se ajuste ao conteúdo */
-        gap: 1.5rem;
-        padding: 2rem;
-        position: relative;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-
-    .section {
-        max-height: fit-content;
-
-    }
-
-    /* Remove o height fixo para section-part */
-    .section-part {
-        width: 90%;
-        display: grid;
-        height: auto !important;
-        min-height: auto;
-        /* Garante que a altura se ajuste ao conteúdo */
-        padding: 2rem;
-    }
-
-    /* Ajusta o comportamento de section-container */
-    .section-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        /* Altera para uma coluna */
-        grid-template-rows: auto;
-        /* Adapta a altura das linhas ao conteúdo */
-        gap: 1.5rem;
-        /* Mantém o espaço entre as seções */
-    }
-
-    /* CABEÇALHO */
-    .menu-nav {
-        display: none;
-    }
-
-}
 
 .login-container {
     display: flex;
@@ -738,15 +699,7 @@ button {
     margin-bottom: 1.5rem;
 }
 
-#section2 {
-    display: flex;
 
-    justify-content: left;
-    align-items: center;
-    gap: var(--gap);
-    padding: 2rem;
-    background-color: var(--white-gray-color);
-}
 
 .image-text-container {
     display: flex;
@@ -762,30 +715,34 @@ button {
 }
 
 .image-text-item {
-    display: flex;
-    border-radius: 2rem;
-
-    flex-direction: column;
-    align-items: center;
-    height: 35rem;
-    text-align: center;
-    /* Centraliza o texto dentro de cada item */
-    border: 1px solid #ccc;
-    /* Adiciona uma borda para visualização */
+    width: 20rem;
+    /* Largura fixa */
+    height: 30rem;
+    /* Altura fixa */
     padding: 1rem;
-    /* Adiciona preenchimento para separação */
-    box-sizing: border-box;
-    /* Inclui borda e preenchimento na largura total */
+    /* Padding interno */
+    background-color: var(--faded-thin-black-color);
+    /* Cor de fundo opcional */
+    text-align: center;
+    /* Centraliza o texto */
+    border-radius: 0.5rem;
+    /* Borda arredondada */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    /* Garante espaço para os elementos */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
 }
 
 .image-text-item img {
-    width: 20rem;
+    max-width: 100%;
+    height: auto;
     border-radius: 0.5rem;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
 }
 
-.image-text-item img:hover {
+.image-text-item:hover {
     transform: scale(1.05);
 }
 
@@ -795,14 +752,26 @@ button {
     color: var(--primary-color);
 }
 
+.titulo-section {
+    color: black;
+    font-size: 5rem;
+    margin-top: 1rem;
+    white-space: nowrap;
+    /* Evita quebra de texto */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Adiciona "..." caso o texto ultrapasse */
+}
+
 .titulo-produto {
     color: black;
+    font-size: 1.5rem;
+    margin-top: 1rem;
     white-space: nowrap;
-    /* Evita quebra de linha no título */
-    margin: 0;
-    /* Remove margens automáticas */
-    padding: 0;
-    /* Remove preenchimento */
+    /* Evita quebra de texto */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Adiciona "..." caso o texto ultrapasse */
 }
 
 .preço-produto {
@@ -816,7 +785,9 @@ button {
 }
 
 .linha-produtos {
-    display: flex;
-    gap: 2rem;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 4 colunas */
+    grid-gap: 2rem;
+    /* Espaçamento entre os itens */
 }
