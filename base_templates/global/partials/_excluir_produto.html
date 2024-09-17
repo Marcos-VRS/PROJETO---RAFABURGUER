@@ -1,0 +1,20 @@
+<!-- templates/produtos/excluir_produto.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Produto</title>
+</head>
+
+<body>
+    <h1>Excluir Produto</h1>
+    <p>Tem certeza de que deseja excluir "{{ produto.nome_do_produto }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Excluir</button>
+    </form>
+    <a href="{% url 'site_rafaburguer:listar_produtos' %}">Cancelar</a>
+</body>
+
+</html>

@@ -148,7 +148,7 @@ a {
 .section {
     display: flex;
     padding-top: 30px;
-    min-height: 120vh;
+    min-height: 100vh;
     position: relative;
     align-items: flex-start;
     justify-content: flex-start;
