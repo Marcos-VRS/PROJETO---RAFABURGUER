@@ -4,6 +4,7 @@ from .models import ProdutoCadastroModel
 from .forms import ProdutoCadastroForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages, auth
+from .models import ProdutoCadastroModel, Categoria
 
 # Create your views here.
 
@@ -54,16 +55,42 @@ def logout_view(request):
     )
 
 
-# Listar produtos
+# listar produtos
 @login_required(login_url="site_rafaburguer:tela_login")
 def listar_produtos(request):
     username = request.user.username  # Obtém o nome de usuário do request
 
     produtos = ProdutoCadastroModel.objects.all()
+    categorias = Categoria.objects.all()  # Obtenha todas as categorias
+
+    # Filtros de busca
+    query_nome = request.GET.get("nome")
+    query_categoria_id = request.GET.get("categoria")
+    query_categoria_nome = None
+
+    if query_categoria_id:
+        try:
+            categoria = Categoria.objects.get(id=query_categoria_id)
+            query_categoria_nome = categoria.name
+            produtos = produtos.filter(categoria__id=query_categoria_id)
+        except Categoria.DoesNotExist:
+            query_categoria_id = (
+                None  # Se a categoria não existir, não filtrar por categoria
+            )
+
+    if query_nome:
+        produtos = produtos.filter(nome_do_produto__icontains=query_nome)
+
     return render(
         request,
         "global/partials/_listar_produtos.html",
-        {"produtos": produtos, "username": username},
+        {
+            "produtos": produtos,
+            "categorias": categorias,
+            "username": username,
+            "query_nome": query_nome,
+            "query_categoria": query_categoria_nome,  # Passa o nome da categoria para o template
+        },
     )
 
 
