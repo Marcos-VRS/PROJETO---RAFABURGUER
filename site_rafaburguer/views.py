@@ -8,7 +8,13 @@ from django.contrib import messages, auth
 
 # Landing page site-cardápio
 def index(request):
-    return render(request, "site_rafaburguer/index.html")
+    categorias = Categoria.objects.all()
+    produtos = ProdutoCadastroModel.objects.all()
+    return render(
+        request,
+        "site_rafaburguer/index.html",
+        {"categorias": categorias, "produtos": produtos},
+    )
 
 
 # Index administrador

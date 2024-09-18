@@ -22,8 +22,4 @@ urlpatterns = [
         name="atualizar_produto",
     ),
     path("produtos/excluir/<int:id>/", views.excluir_produto, name="excluir_produto"),
-]
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
