@@ -55,7 +55,6 @@ def logout_view(request):
     )
 
 
-# listar produtos
 @login_required(login_url="site_rafaburguer:tela_login")
 def listar_produtos(request):
     username = request.user.username  # Obtém o nome de usuário do request
@@ -81,6 +80,9 @@ def listar_produtos(request):
     if query_nome:
         produtos = produtos.filter(nome_do_produto__icontains=query_nome)
 
+    # Ordenar produtos por data de criação (mais novos primeiro)
+    produtos = produtos.order_by("-data_de_criação")
+
     return render(
         request,
         "global/partials/_listar_produtos.html",
@@ -97,20 +99,19 @@ def listar_produtos(request):
 # Adicionar produto
 @login_required(login_url="site_rafaburguer:tela_login")
 def adicionar_produto(request):
-    username = request.user.username  # Obtém o nome de usuário do request
 
     if request.method == "POST":
         form = ProdutoCadastroForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, "Produto adicionado com sucesso!")
-            return redirect("site_rafaburguer:listar_produtos", {"username": username})
+            return redirect("site_rafaburguer:listar_produtos")
     else:
         form = ProdutoCadastroForm()
     return render(
         request,
         "global/partials/_adicionar_produto.html",
-        {"form": form, "username": username},
+        {"form": form},
     )
 
 
@@ -126,14 +127,14 @@ def atualizar_produto(request, id):
                 request, f"Produto {produto.nome_do_produto} atualizado com sucesso!"
             )
             return redirect(
-                "site_rafaburguer:listar_produtos", {"username": request.user.username}
+                "site_rafaburguer:listar_produtos",
             )
     else:
         form = ProdutoCadastroForm(instance=produto)
     return render(
         request,
         "global/partials/_atualizar_produto.html",
-        {"form": form, "produto": produto, "username": request.user.username},
+        {"form": form, "produto": produto},
     )
 
 
@@ -146,11 +147,9 @@ def excluir_produto(request, id):
         messages.success(
             request, f"Produto {produto.nome_do_produto} deletado com sucesso!"
         )
-        return redirect(
-            "site_rafaburguer:listar_produtos", {"username": request.user.username}
-        )
+        return redirect("site_rafaburguer:listar_produtos")
     return render(
         request,
         "global/partials/_excluir_produto.html",
-        {"produto": produto, "username": request.user.username},
+        {"produto": produto},
     )

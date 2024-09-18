@@ -1,5 +1,6 @@
 :root {
     --primary-color: #232100;
+    --light-primary-color: #f1efc9;
     --white-color: #ffffffe8;
     --light-gray-color: #eeeeee3d;
     --faded-black-color: rgba(0, 0, 0, 0.534);
@@ -66,7 +67,11 @@ a {
     background: var(--light-gray-color);
 }
 
-.menu {
+.primary-color-bg {
+    background: var(--primary-color);
+}
+
+.white .menu {
     position: fixed;
     top: 0;
     left: 0;

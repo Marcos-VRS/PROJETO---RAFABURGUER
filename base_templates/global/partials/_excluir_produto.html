@@ -1,20 +1,33 @@
-<!-- templates/produtos/excluir_produto.html -->
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "global/index_administrador.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Excluir Produto</title>
-</head>
+{% block content %}
+<div class="produto-actions">
+    <h1 style="text-align: center; font-size: 2.4rem; margin-bottom: 2rem; color: var(--black-color);">Excluir Produto
+    </h1>
+    <div class="button-container"
+        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <!-- Botão de voltar -->
+        <a href="{% url 'site_rafaburguer:listar_produtos' %}" class="produto-button"
+            style="background-color: var(--primary-color); color: var(--black-color); text-decoration: none; padding: 1rem 2rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color); transition: transform 0.3s ease, background-color 0.3s ease; margin-bottom: 1.5rem;">
+            Voltar
+        </a>
+    </div>
+</div>
 
-<body>
-    <h1>Excluir Produto</h1>
-    <p>Tem certeza de que deseja excluir "{{ produto.nome_do_produto }}"?</p>
-    <form method="post">
+<div class="form-container" style="margin-top: 2rem; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--black-color);">
+        Tem certeza de que deseja excluir "{{ produto.nome_do_produto }}"?
+    </h2>
+    <form method="post" style="display: inline-block;">
         {% csrf_token %}
-        <button type="submit">Excluir</button>
+        <button type="submit"
+            style="background-color: #dc3545; color: var(--white-color); padding: 1rem 2rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color); cursor: pointer; transition: background-color 0.3s ease;">
+            Excluir
+        </button>
     </form>
-    <a href="{% url 'site_rafaburguer:listar_produtos' %}">Cancelar</a>
-</body>
-
-</html>
+    <a href="{% url 'site_rafaburguer:listar_produtos' %}"
+        style="display: block; margin-top: 1.5rem; color: var(--primary-color); text-decoration: none; font-size: 1.8rem;">
+        Cancelar
+    </a>
+</div>
+{% endblock %}

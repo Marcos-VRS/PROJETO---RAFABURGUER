@@ -1,20 +1,121 @@
-<!-- templates/produtos/adicionar_produto.html -->
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "global/index_administrador.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Adicionar Produto</title>
-</head>
+{% block content %}
+<div class="produto-actions">
+    <h1 style="text-align: center; font-size: 2.4rem; margin-bottom: 2rem; color: var(--black-color);">Adicionar Produto
+    </h1>
+    <div class="button-container"
+        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <!-- Botão de voltar -->
+        <a href="{% url 'site_rafaburguer:listar_produtos' %}" class="produto-button"
+            style="background-color: var(--primary-color); color: var(--black-color); text-decoration: none; padding: 1rem 2rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color); transition: transform 0.3s ease, background-color 0.3s ease; margin-bottom: 1.5rem;">
+            Voltar
+        </a>
+    </div>
+</div>
 
-<body>
-    <h1>Adicionar Produto</h1>
-    <form method="post" enctype="multipart/form-data">
+<div class="form-container" style="margin-top: 2rem;">
+    <form method="post" enctype="multipart/form-data"
+        style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 600px;">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
-    <a href="{% url 'site_rafaburguer:listar_produtos' %}">Voltar</a>
-</body>
 
-</html>
+        <div style="width: 100%; margin-bottom: 2rem;">
+            {% if form.non_field_errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; background-color: #dc3545; padding: 1rem; border-radius: 0.5rem;">
+                {% for error in form.non_field_errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Categoria -->
+        <div class="form-group" style="width: 100%; max-width: 600px; margin-bottom: 1.5rem;">
+            <label for="id_categoria"
+                style="display: block; font-size: 2rem; color: var(--white-color); margin-bottom: 1rem;">
+                Categoria
+            </label>
+            {{ form.categoria }}
+            {% if form.categoria.errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; margin-top: 0.5rem; background-color: #dc3545; padding: 0.5rem; border-radius: 0.5rem;">
+                {{ form.categoria.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Nome do Produto -->
+        <div class="form-group" style="width: 100%; max-width: 600px; margin-bottom: 1.5rem;">
+            <label for="id_nome_do_produto"
+                style="display: block; font-size: 2rem; color: var(--white-color); margin-bottom: 1rem;">
+                Nome do Produto
+            </label>
+            <input type="text" id="id_nome_do_produto" name="nome_do_produto"
+                value="{{ form.nome_do_produto.value|default:'' }}"
+                style="width: 100%; padding: 1rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color);" />
+            {% if form.nome_do_produto.errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; margin-top: 0.5rem; background-color: #dc3545; padding: 0.5rem; border-radius: 0.5rem;">
+                {{ form.nome_do_produto.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Foto do Produto -->
+        <div class="form-group" style="width: 100%; max-width: 600px; margin-bottom: 1.5rem;">
+            <label for="id_foto_do_produto"
+                style="display: block; font-size: 2rem; color: var(--white-color); margin-bottom: 1rem;">
+                Foto do Produto
+            </label>
+            <input type="file" id="id_foto_do_produto" name="foto_do_produto"
+                style="padding: 1rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color);" />
+            {% if form.foto_do_produto.errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; margin-top: 0.5rem; background-color: #dc3545; padding: 0.5rem; border-radius: 0.5rem;">
+                {{ form.foto_do_produto.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Descrição -->
+        <div class="form-group" style="width: 100%; max-width: 600px; margin-bottom: 1.5rem;">
+            <label for="id_descrição"
+                style="display: block; font-size: 2rem; color: var(--white-color); margin-bottom: 1rem;">
+                Descrição
+            </label>
+            <textarea id="id_descrição" name="descrição"
+                style="width: 100%; padding: 1rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color);">{{ form.descrição.value|default:'' }}</textarea>
+            {% if form.descrição.errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; margin-top: 0.5rem; background-color: #dc3545; padding: 0.5rem; border-radius: 0.5rem;">
+                {{ form.descrição.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Campo Preço -->
+        <div class="form-group" style="width: 100%; max-width: 600px; margin-bottom: 1.5rem;">
+            <label for="id_preço"
+                style="display: block; font-size: 2rem; color: var(--white-color); margin-bottom: 1rem;">
+                Preço
+            </label>
+            <input type="text" id="id_preço" name="preço" value="{{ form.preço.value|default:'' }}"
+                style="width: 100%; padding: 1rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color);" />
+            {% if form.preço.errors %}
+            <div class="error-message"
+                style="color: var(--black-color); font-size: 1.4rem; margin-top: 0.5rem; background-color: #dc3545; padding: 0.5rem; border-radius: 0.5rem;">
+                {{ form.preço.errors|join:", " }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <button type="submit"
+                style="background-color: var(--primary-color); color: var(--black-color); padding: 1rem 2rem; font-size: 1.8rem; border-radius: 0.5rem; border: 2px solid var(--black-color); cursor: pointer; transition: background-color 0.3s ease;">
+                Salvar
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
